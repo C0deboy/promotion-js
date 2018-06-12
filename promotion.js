@@ -1,7 +1,7 @@
 const promotions = [
   {
-    start: new Date('2018-06-13'),
-    end: new Date('2018-06-13'),
+    start: new Date('2018-06-12'),
+    end: new Date('2018-06-12'),
     number: '3607',
     host: 'helion.pl',
     img: 'https://static01.helion.com.pl/helion/img/newsy/f7172657bf8c0114233be4237fe93ef4.png',
@@ -12,14 +12,14 @@ const promotions = [
   },
   {
     start: new Date('2018-05-15'),
-    end: new Date('2018-06-13'),
+    end: new Date('2018-06-12'),
     number: '3607',
     host: 'videopoint.pl',
     img: 'https://videopoint.pl/img/newsy/72fac5e23eec8e0c3450d2be521b7925.gif',
     popup: false,
     message: 'W videopoint trwa [promocja] 2za1 na książki z top100. Zobacz książki, które warto kupić.',
     adHeader: 'W videopoint trwa [promocja] na videokursy.',
-    adContent: `Na ksią.`,
+    adContent: ``,
   },
 ];
 
