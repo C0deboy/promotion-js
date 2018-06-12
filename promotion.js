@@ -8,7 +8,7 @@ const promotions = [
     popup: true,
     message: `W Helion trwa [promocja] 2za1 na książki z top100. Zobacz książki, które warto kupić.`,
     adHeader: 'W Helion trwa [promocja 2za1]:',
-    adContent: `Na książki z top 100.<br> Zobacz książki, które warto kupić w <a href="/moja-biblioteka">mojej bibliotece</a>.`,
+    adContent: `Na książki z top 100.`,
   },
   {
     start: new Date('2018-05-15'),
@@ -143,7 +143,12 @@ function showPromotionAd(promotion, i) {
     header.innerHTML = promotion.adHeader;
 
     const promoDesc = promotionLink.querySelector('.promotion-content');
-    promoDesc.innerHTML = promotion.adContent + '<br>' + getWhenEndMessage(promotion);
+
+    let desc = promotion.adContent + '<br>' + getWhenEndMessage(promotion);
+    if(location.hostname === 'devcave.pl') {
+      desc += '<br> Zobacz książki, które warto kupić w <a href="/moja-biblioteka">mojej bibliotece</a>';
+    }
+    promoDesc.innerHTML = desc;
 
     const imageLink = document.createElement('a');
     imageLink.href = promotion.url.toString();
