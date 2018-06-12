@@ -137,7 +137,7 @@ function showPromotionAd(promotion, i) {
     if (i > 0) {
       promotionLink = cloneAd(promotionLink, i);
     }
-    promotionLink.style.display = 'block';
+    promotionLink.style.display = 'inline-block';
 
     const header = promotionLink.querySelector('.promotion-header');
     header.innerHTML = promotion.adHeader;
