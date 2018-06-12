@@ -1,7 +1,7 @@
 const promotions = [
   {
-    start: new Date('2018-06-12'),
-    end: new Date('2018-06-12'),
+    start: new Date('2018-06-13'),
+    end: new Date('2018-06-13'),
     number: '3607',
     host: 'helion.pl',
     img: 'https://static01.helion.com.pl/helion/img/newsy/f7172657bf8c0114233be4237fe93ef4.png',
@@ -12,7 +12,7 @@ const promotions = [
   },
   {
     start: new Date('2018-05-15'),
-    end: new Date('2018-06-12'),
+    end: new Date('2018-06-13'),
     number: '3607',
     host: 'videopoint.pl',
     img: 'https://videopoint.pl/img/newsy/72fac5e23eec8e0c3450d2be521b7925.gif',
@@ -30,7 +30,7 @@ function appendLinkToMessage(message, url) {
 }
 
 function validContext() {
-  if(location.hostname === 'jaki-jezyk-programowania.pl') {
+  if (location.hostname === 'jaki-jezyk-programowania.pl') {
     return location.pathname === '/';
   } else if (location.hostname === 'devcave.pl') {
     return location.pathname !== '/';
@@ -145,7 +145,7 @@ function showPromotionAd(promotion, i) {
     const promoDesc = promotionLink.querySelector('.promotion-content');
 
     let desc = promotion.adContent + '<br>' + getWhenEndMessage(promotion);
-    if(document.title === 'devcave.pl' && promotion.url.hostname === 'helion.pl') {
+    if (document.title === 'devcave.pl' && promotion.url.hostname === 'helion.pl') {
       desc += '<br> Zobacz książki, które warto kupić w <a href="/moja-biblioteka">mojej bibliotece</a>';
     }
     promoDesc.innerHTML = desc;
