@@ -145,7 +145,7 @@ function showPromotionAd(promotion, i) {
     const promoDesc = promotionLink.querySelector('.promotion-content');
 
     let desc = promotion.adContent + '<br>' + getWhenEndMessage(promotion);
-    if(location.hostname === 'devcave.pl') {
+    if(document.title === 'devcave.pl' && promotion.url.hostname === 'helion.pl') {
       desc += '<br> Zobacz książki, które warto kupić w <a href="/moja-biblioteka">mojej bibliotece</a>';
     }
     promoDesc.innerHTML = desc;
