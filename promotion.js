@@ -11,7 +11,7 @@ const promotions = [
     adContent: `Na książki z top 100.`,
   },
   {
-    start: new Date('2018-05-15'),
+    start: new Date('2018-05-12'),
     end: new Date('2018-06-12'),
     number: '3607',
     host: 'videopoint.pl',
