@@ -81,7 +81,7 @@ function createPromotionMessagePopup(promotion) {
     closeBtn.addEventListener('click', () => closeAd(promotionPopup));
 
     promotionPopup.innerHTML = promotion.message;
-    promotionPopup.classList.add('promotion-sign', 'box-effect');
+    promotionPopup.classList.add('promotion-popup', 'box-effect');
     promotionPopup.appendChild(closeBtn);
     document.body.appendChild(promotionPopup);
     positionPromotionPopup(booksBtn, promotionPopup);
