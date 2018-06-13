@@ -1,16 +1,5 @@
 const promotions = [
   {
-    start: new Date('2018-06-11'),
-    end: new Date('2018-06-11'),
-    number: '3607',
-    host: 'helion.pl',
-    img: '/promotion-js/p.jpg',
-    popup: false,
-    message: `W Helion trwa [promocja] 2za1 na książki z top100. Zobacz książki, które warto kupić.`,
-    adHeader: 'W Helion trwa [promocja 2za1]:',
-    adContent: `Na książki z top 100.`,
-  },
-  {
     start: new Date('2018-05-14'),
     end: new Date('2018-06-17'),
     number: '5060',
@@ -18,7 +7,7 @@ const promotions = [
     img: '/promotion-js/p.jpg',
     popup: true,
     message: 'W videopoint jest duża [promocja] z okazji 3 urodzin. Wszystkie kursy za 33.33zł!',
-    adHeader: 'W videopoint trwa [promocja] na videokursy.',
+    adHeader: 'W videopoint jest duża [promocja]:',
     adContent: ``,
   },
 ];
@@ -144,8 +133,10 @@ function showPromotionAd(promotion, i) {
 
     const promoDesc = promotionLink.querySelector('.promotion-content');
 
-    let desc = promotion.adContent + '<br>' + getWhenEndMessage(promotion);
+    let desc = promotion.adContent;
+
     if (document.title === 'devcave.pl' && promotion.url.hostname === 'helion.pl') {
+      if (desc === '') desc += '<br>';
       desc += '<br> Zobacz książki, które warto kupić w <a href="/moja-biblioteka">mojej bibliotece</a>';
     }
     promoDesc.innerHTML = desc;
@@ -157,5 +148,8 @@ function showPromotionAd(promotion, i) {
 
     imageLink.appendChild(img);
     promoDesc.appendChild(imageLink);
+    const endsAt = document.createElement('span');
+    endsAt.innerText = getWhenEndMessage(promotion);
+    promotionLink.appendChild(endsAt);
   }
 }

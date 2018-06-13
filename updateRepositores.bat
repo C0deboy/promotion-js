@@ -8,22 +8,31 @@ echo Incorrect input & goto Ask
 
 :Execute
 
-printf \n UPDATING PROMOTION-JS \n
+echo
+echo UPDATING PROMOTION-JS
+echo
 
 git add -A && git commit -m "new promotion" && git push origin %branch%
 cd ../jaki-jezyk-programowania || pause && exit
 
-printf \n UPDATING JAKI-JEZYK-PROGRAMOWANIA \n
+echo
+echo UPDATING JAKI-JEZYK-PROGRAMOWANIA
+echo
 
 git checkout promotion-js && git submodule update --remote
 git add promotion-js && git commit -m "updated promotion" && git push origin %branch%
 cd ../devcave || echo "Devcave won't be updated" && pause && exit
 
-printf \n UPDATING DEVCAVE \n
+echo
+echo UPDATING DEVCAVE
+echo
 
 git checkout promotion-js && git submodule update --remote
 git add promotion-js && git commit -m "updated promotion" && git push origin %branch%
 
+echo
 echo DONE
+echo
+
 pause
 exit
