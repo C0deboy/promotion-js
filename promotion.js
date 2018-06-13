@@ -18,17 +18,6 @@ function appendLinkToMessage(message, url) {
   return message.replace(/\[(.*?)]/, `<a href="${url}" target="_blank">$1</a>`);
 }
 
-function validContext() {
-  if (location.hostname === 'jaki-jezyk-programowania.pl') {
-    return location.pathname === '/';
-  } else if (location.hostname === 'devcave.pl') {
-    return location.pathname !== '/';
-  } else {
-    return true;
-  }
-}
-
-
 promotions.forEach((promotion, i) => {
   if (isPromotionActive(promotion)) {
     promotion.url = new URL(`http://${promotion.host}/page/9102Q/promocja/${promotion.number}`);
@@ -41,7 +30,8 @@ promotions.forEach((promotion, i) => {
     } else {
       showPromotionAd(promotion, i);
     }
-    if (promotion.popup && validContext() && localStorage.getItem('ad-closed') !== '1') {
+
+    if (promotion.popup && localStorage.getItem('ad-closed') !== '1') {
       createPromotionMessagePopup(promotion);
     }
   }
@@ -123,6 +113,7 @@ function showPromotionAd(promotion, i) {
   let promotionLink = document.querySelector('.promotion');
 
   if (promotionLink) {
+    promotion.popup = false;
     if (i > 0) {
       promotionLink = cloneAd(promotionLink, i);
     }

@@ -1,38 +1,38 @@
 @echo off
 
 :Ask
-set /P INPUT=Commit to gh-pages?[y/n]: %=%
+set /P INPUT=Commit to gh-pages?[y/n]:
 If /I "%INPUT%"=="y" set branch="gh-pages" & goto Execute
 If /I "%INPUT%"=="n" set branch="master" & goto Execute
 echo Incorrect input & goto Ask
 
 :Execute
 
-echo
+echo =====================
 echo UPDATING PROMOTION-JS
-echo
+echo =====================
 
 git add -A && git commit -m "new promotion" && git push origin %branch%
 cd ../jaki-jezyk-programowania || pause && exit
 
-echo
+echo =================================
 echo UPDATING JAKI-JEZYK-PROGRAMOWANIA
-echo
+echo =================================
 
 git checkout promotion-js && git submodule update --remote
 git add promotion-js && git commit -m "updated promotion" && git push origin %branch%
 cd ../devcave || echo "Devcave won't be updated" && pause && exit
 
-echo
+echo ================
 echo UPDATING DEVCAVE
-echo
+echo ================
 
 git checkout promotion-js && git submodule update --remote
 git add promotion-js && git commit -m "updated promotion" && git push origin %branch%
 
-echo
+echo ====
 echo DONE
-echo
+echo ====
 
 pause
 exit
