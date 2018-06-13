@@ -12,7 +12,7 @@ echo =====================
 echo UPDATING PROMOTION-JS
 echo =====================
 
-git add -A && git commit -m "new promotion" && git push origin %branch%
+git add -A && git commit -m "new promotion" && git push origin master
 cd ../jaki-jezyk-programowania || pause && exit
 
 echo =================================
