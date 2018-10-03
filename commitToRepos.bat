@@ -10,18 +10,18 @@ cd ..\jaki-jezyk-programowania || echo "jaki-jezyk-programowania won't be update
 xcopy /y "..\promotion-js\img\*" %destination%
 xcopy /y "..\promotion-js\promotion.js" %destination%
 
-git add promotion && git commit -m "updated promotion" && git push origin gh-pages
+cd _site && git add promotion && git commit -m "updated promotion" && git push origin gh-pages
 
 echo ================
 echo UPDATING DEVCAVE
 echo ================
 
-cd ..\devcave || echo "Devcave won't be updated" && pause && exit
+cd ..\..\devcave || echo "Devcave won't be updated" && pause && exit
 
 xcopy /y "..\promotion-js\img\*" %destination%
 xcopy /y "..\promotion-js\promotion.js" %destination%
 
-git add promotion && git commit -m "updated promotion" && git push origin gh-pages
+cd _site && git add promotion && git commit -m "updated promotion" && git push origin gh-pages
 
 echo ====
 echo DONE
