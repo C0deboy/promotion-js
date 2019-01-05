@@ -1,13 +1,13 @@
 const promotions = [
   {
-    start: new Date('2018-06-14'),
-    end: new Date('2018-06-17'),
-    number: '5060',
-    host: 'videopoint.pl',
+    start: new Date('2019-01-02'),
+    end: new Date('2019-01-03'),
+    number: '6094',
+    host: 'helion.pl',
     img: '/promotion/p.jpg',
     popup: true,
-    message: 'W videopoint jest duża [promocja] z okazji 3 urodzin. Wszystkie kursy za 33.33zł!',
-    adHeader: 'W videopoint jest duża [promocja]:',
+    message: 'Promocja na ebooki w [Helion] - nawet do -90%',
+    adHeader: 'Promocja na ebooki w [Helion] - nawet do -90%',
     adContent: '',
   },
 ];
@@ -20,7 +20,7 @@ function appendLinkToMessage(message, url) {
 
 promotions.forEach((promotion, i) => {
   if (isPromotionActive(promotion)) {
-    promotion.url = new URL(`http://${promotion.host}/page/9102Q/promocja/${promotion.number}`);
+    promotion.url = new URL(`http://${promotion.host}/page/9102Q/promocja/${promotion.number}`);// kategorie/promocja-2za1`);
 
     promotion.message = appendLinkToMessage(promotion.message, promotion.url);
     promotion.adHeader = appendLinkToMessage(promotion.adHeader, promotion.url);
@@ -127,8 +127,8 @@ function showPromotionAd(promotion, i) {
     let desc = promotion.adContent;
 
     if (document.title === 'devcave.pl' && promotion.url.hostname === 'helion.pl') {
-      if (desc === '') desc += '<br>';
-      desc += '<br> Zobacz książki, które warto kupić w <a href="/moja-biblioteka">mojej bibliotece</a>';
+      if (desc !== '') desc += '<br><br>';
+      desc += 'Zobacz książki, które warto kupić w <a href="/moja-biblioteka">mojej bibliotece</a>';
     }
     promoDesc.innerHTML = desc;
 
