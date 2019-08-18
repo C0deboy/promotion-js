@@ -77,7 +77,7 @@ function positionPromotionPopup(booksBtn, popup) {
   const booksBtnRect = booksBtn.getBoundingClientRect();
   const left = (booksBtnRect.left - popup.offsetWidth) + +(booksBtnRect.width / 4);
 
-  if (document.documentElement.clientWidth <= 768) {
+  if (document.documentElement.clientWidth <= 992) {
     popup.style.right = '25px';
   } else {
     popup.style.left = left + 'px';
