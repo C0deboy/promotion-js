@@ -1,26 +1,26 @@
 const promotions = [
   {
-    start: new Date('2019-01-02'),
-    end: new Date('2019-01-03'),
+    start: new Date('2020-07-14'),
+    end: new Date('2020-07-20'),
     number: '6094',
     host: 'helion.pl',
     img: '/promotion/p.jpg',
     popup: true,
-    message: 'Promocja na ebooki w [Helion] - nawet do -90%',
-    adHeader: 'Promocja na ebooki w [Helion] - nawet do -90%',
+    message: 'Promocja w [Helion] - 2 książki w cenie 1. Wolisz video kursy? Zajrzyj na <a href="https://click.linksynergy.com/fs-bin/click?id=0Bz3A2CPbI4&offerid=358574.1389&subid=0&type=4" target="_blank">Udemy</a>',
+    adHeader: 'Promocja w [Helion] - 2 książki w cenie 1. Wolisz video kursy? Zajrzyj na <a href="https://click.linksynergy.com/fs-bin/click?id=0Bz3A2CPbI4&offerid=358574.1389&subid=0&type=4" target="_blank">Udemy</a>',
     adContent: '',
   },
 ];
 
 const customMessage = '';
 
-function appendLinkToMessage(message, url) {
-  return message.replace(/\[(.*?)]/, `<a href="${url}" target="_blank">$1</a>`);
-}
-
 promotions.forEach((promotion, i) => {
   if (isPromotionActive(promotion)) {
-    promotion.url = new URL(`http://${promotion.host}/page/9102Q/promocja/${promotion.number}`);// kategorie/promocja-2za1`);
+
+    let url = `http://${promotion.host}/page/9102Q/kategorie/promocja-2za1`;
+    // let url = `http://${promotion.host}/page/9102Q/promocja/${promotion.number}`;
+
+    promotion.url = new URL(url);
 
     promotion.message = appendLinkToMessage(promotion.message, promotion.url);
     promotion.adHeader = appendLinkToMessage(promotion.adHeader, promotion.url);
@@ -36,6 +36,10 @@ promotions.forEach((promotion, i) => {
     }
   }
 });
+
+function appendLinkToMessage(message, url) {
+  return message.replace(/\[(.*?)]/, `<a href="${url}" target="_blank">$1</a>`);
+}
 
 function isPromotionActive(promotion) {
   const currentDate = new Date();
