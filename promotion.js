@@ -15,7 +15,7 @@ const customMessage = '';
 
 promotions.forEach((promotion, i) => {
   if (isPromotionActive(promotion)) {
-    // const helionUrl = `http://${promotion.host}/page/9102Q/kategorie/promocja-2za1`;
+    // const helionUrl = `http://helion.pl/page/9102Q/kategorie/promocja-2za1`;
     const helionUrl = `https://helion.pl/page/9102Q/promocja/${promotion.number}`;
     const udemyUrl = 'https://click.linksynergy.com/deeplink?id=0Bz3A2CPbI4&mid=39197&murl=https%3A%2F%2Fwww.udemy.com%2Fcourses%2Fdevelopment%2F';
 
@@ -85,7 +85,7 @@ function positionPromotionPopup(booksBtn, popup) {
   if (document.documentElement.clientWidth <= 992) {
     popup.style.right = '25px';
   } else {
-    popup.style.left = left + 'px';
+    popup.style.left = `${left}px`;
     popup.style.right = '';
   }
 }
@@ -103,15 +103,14 @@ function getWhenEndMessage(promotion) {
   } else {
     to = 'Promocja tylko dziś!';
   }
-  return '(' + to + ')';
+  return `(${to})`;
 }
 
 function cloneAd(promotionLink, i) {
   const newPromotionLink = promotionLink.cloneNode(true);
   promotionLink.parentElement.insertBefore(newPromotionLink, promotionLink);
   newPromotionLink.classList.add(`link-${i}`);
-  promotionLink = document.querySelector(`.promotion.link-${i}`);
-  return promotionLink;
+  return document.querySelector(`.promotion.link-${i}`);
 }
 
 function showPromotionAd(promotion, i) {
